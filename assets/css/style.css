@@ -1,0 +1,206 @@
+body {
+    background-color: #0c0a09;
+    color: #e7e5e4;
+    overflow-x: hidden;
+}
+
+::selection {
+    background-color: #ca8a04;
+    color: white;
+}
+
+/* Gold Utilities */
+.text-gold { color: #D4AF37; }
+.bg-gold { background-color: #D4AF37; }
+.border-gold { border-color: #D4AF37; }
+
+.gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F5D76E 50%, #D4AF37 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    to { background-position: 200% center; }
+}
+
+/* Animated Background Particles */
+.particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: #D4AF37;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: particleFloat 15s infinite ease-in-out;
+}
+
+@keyframes particleFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+    50% { transform: translate(var(--tx), var(--ty)) scale(1.5); opacity: 0.8; }
+}
+
+/* Geometric Background */
+.geo-shape {
+    position: absolute;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+    animation: rotate3d 20s linear infinite;
+}
+
+@keyframes rotate3d {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.1); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+/* Typing Animation */
+.typed-cursor {
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* 3D Card Flip */
+.flip-card {
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+/* Skill Progress Bars */
+.skill-bar {
+    position: relative;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+}
+
+.skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #D4AF37, #F5D76E);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skill-bar.animate .skill-fill {
+    transform: scaleX(1);
+}
+
+/* Counter Animation Ready */
+.counter {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Interactive Quote Reveal */
+.quote-reveal {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
+    transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.quote-reveal.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* Timeline Connector */
+.timeline-line {
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, #D4AF37, transparent);
+}
+
+/* Hover Glow Effect */
+.glow-on-hover {
+    position: relative;
+    transition: all 0.3s;
+}
+
+.glow-on-hover::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #D4AF37, #F5D76E, #D4AF37);
+    opacity: 0;
+    filter: blur(20px);
+    transition: opacity 0.3s;
+    z-index: -1;
+}
+
+.glow-on-hover:hover::before {
+    opacity: 0.7;
+}
+
+/* Reveal Animation Classes */
+.reveal-element {
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.17, 0.55, 0.55, 1);
+}
+
+.reveal-up { transform: translateY(50px); }
+.reveal-down { transform: translateY(-50px); }
+.reveal-left { transform: translateX(50px); }
+.reveal-right { transform: translateX(-50px); }
+
+.reveal-element.is-visible {
+    opacity: 1;
+    transform: translate(0, 0);
+}
+
+/* Nav Hover Line */
+.nav-link span {
+    width: 0;
+    transition: width 0.3s ease;
+}
+.nav-link:hover span, .nav-link.active span {
+    width: 100%;
+}
+.nav-link.active {
+    color: #D4AF37;
+}
+
+/* Button Hover Slide */
+.btn-slide-gold .slide-bg {
+    transform: translateX(-101%);
+    transition: transform 0.3s ease;
+}
+.btn-slide-gold:hover .slide-bg {
+    transform: translateX(0);
+}
+.btn-slide-gold:hover .btn-text {
+    color: #0c0a09;
+}
+
+/* Morphing Shapes */
+@keyframes morph {
+    0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+}
+
+.morphing-shape {
+    animation: morph 8s ease-in-out infinite;
+}
