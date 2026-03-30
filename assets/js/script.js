@@ -49,7 +49,7 @@ window.addEventListener('load', () => {
     const nameElement = document.getElementById('typed-name');
     if (nameElement) {
         setTimeout(() => {
-            typeWriter(nameElement, 'Rida', 200);
+            typeWriter(nameElement, 'Rida Shahid', 200);
         }, 800);
     }
 });
@@ -63,7 +63,7 @@ function animateCounter(element, target, duration = 2000) {
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
-            element.textContent = target + (target === 100 ? '' : '+');
+            element.textContent = target;
             clearInterval(timer);
         } else {
             element.textContent = Math.floor(current);
