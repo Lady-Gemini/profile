@@ -21,7 +21,7 @@ export function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 pb-10">
-      <div className="w-full flex flex-col md:flex-row items-center gap-12 lg:gap-20 relative z-10">
+      <div className="w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-20 relative z-10">
         <div className="flex-1 space-y-8 relative">
           
           <motion.div 
@@ -34,30 +34,26 @@ export function Hero() {
               <div className="absolute w-full h-full bg-[#F4B400] rounded-full animate-ping opacity-30"></div>
               <Zap size={14} className="text-[#F4B400]" /> 
             </div>
-            SYSTEM.STATUS: ONLINE
+            AVAILABLE FOR PROJECTS
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-1">
             <motion.h1 
               custom={1} variants={textVariants} initial="hidden" animate="visible"
-              className="text-6xl md:text-8xl lg:text-[7rem] font-black tracking-tighter leading-[0.95] text-[#1A1A1A] dark:text-[#FAF7F0]"
+              className="text-5xl md:text-6xl lg:text-[6rem] font-bold tracking-tighter leading-[1.05] text-[#1A1A1A] dark:text-[#FAF7F0] flex flex-col"
             >
-              Rida Shahid<span className="text-[#C06A3A] dark:text-[#F4B400]">.</span>
+              <span>Hi, I'm</span>
+              <span className="text-[#C06A3A] dark:text-[#D9A441]">Rida...</span>
+              <span className="text-[#C06A3A] dark:text-[#D9A441]">Business</span>
+              <span className="text-[#C06A3A] dark:text-[#D9A441]">Administrator.</span>
             </motion.h1>
-            
-            <motion.div 
-              custom={2} variants={textVariants} initial="hidden" animate="visible"
-              className="text-2xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-[#C06A3A] via-[#E97A5A] to-[#E3A72F] dark:from-[#D9A441] dark:via-[#F4B400] dark:to-[#E3A72F] w-fit pr-4"
-            >
-              Business Architect
-            </motion.div>
           </div>
 
           <motion.p 
             custom={3} variants={textVariants} initial="hidden" animate="visible"
-            className="text-lg md:text-xl text-[#7A8F85] dark:text-[#E5DED3] font-medium max-w-2xl leading-relaxed border-l-4 border-[#F4B400] pl-6"
+            className="text-lg md:text-xl text-[#7A8F85] dark:text-[#E5DED3] font-medium max-w-2xl leading-relaxed mt-8"
           >
-            Bridging the gap between robust operational frameworks and cutting-edge digital execution. Eager to drive strategic growth through data and management.
+            I blend administrative strategy with modern execution to build robust operational frameworks and drive strategic growth through efficient management and planning.
           </motion.p>
           
           <motion.div 
@@ -85,7 +81,22 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Parallax Holographic Sphere graphic container can go here if needed, keeping it minimal for now. */}
+        {/* Profile Picture */}
+        <div className="flex flex-1 justify-center relative w-full max-w-[280px] md:max-w-[350px] lg:max-w-none mx-auto order-first lg:order-last mb-8 lg:mb-0">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ type: "spring", stiffness: 100, delay: 0.3 }}
+            className="w-72 h-72 md:w-96 md:h-96 rounded-full border-4 border-[#C06A3A]/20 dark:border-[#D9A441]/20 p-2 relative overflow-hidden flex items-center justify-center bg-white/20 dark:bg-[#3E5B4C]/20 backdrop-blur-md shadow-2xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#C06A3A]/10 to-transparent dark:from-[#D9A441]/10 rounded-full animate-pulse" />
+            <div className="w-full h-full rounded-full bg-[#1A1A1A]/5 dark:bg-[#FAF7F0]/5 flex items-center justify-center border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 overflow-hidden relative">
+              <img src="/profile.png" alt="Rida Shahid" className="w-full h-full object-cover relative z-20" />
+            </div>
+            {/* Decorative orbit */}
+            <div className="absolute inset-[-10px] rounded-full border border-dashed border-[#F4B400]/30 animate-[spin_20s_linear_infinite]" />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

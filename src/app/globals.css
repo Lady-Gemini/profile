@@ -24,18 +24,23 @@
   }
 }
 
-/* Futuristic grid backgrounds */
+/* Animated Background */
 .bg-grid {
-  background-size: 50px 50px;
-  background-image: 
-    linear-gradient(to right, rgba(244, 180, 0, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(244, 180, 0, 0.05) 1px, transparent 1px);
+  background: linear-gradient(120deg, var(--color-offwhite), var(--color-graybeige), var(--color-offwhite));
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
 }
 
 .dark .bg-grid {
-  background-image: 
-    linear-gradient(to right, rgba(217, 164, 65, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217, 164, 65, 0.03) 1px, transparent 1px);
+  background: linear-gradient(120deg, var(--color-forest), var(--color-olive), var(--color-primary-black));
+  background-size: 200% 200%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .mask-border {

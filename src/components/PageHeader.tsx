@@ -25,9 +25,21 @@ export function PageHeader({
         initial={{ opacity: 0, y: 22 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, delay: 0.05 }}
-        className="text-4xl md:text-6xl font-semibold tracking-tight"
+        className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tighter leading-[1.05]"
       >
-        {title}
+        {(() => {
+          const words = title.split(" ");
+          if (words.length <= 1) return title;
+          const mid = Math.ceil(words.length / 2);
+          const firstHalf = words.slice(0, mid).join(" ");
+          const secondHalf = words.slice(mid).join(" ");
+          return (
+            <span className="flex flex-col">
+              <span>{firstHalf}</span>
+              <span className="text-[#C06A3A] dark:text-[#D9A441]">{secondHalf}</span>
+            </span>
+          );
+        })()}
       </motion.h1>
       <motion.p
         initial={{ opacity: 0, y: 26 }}
