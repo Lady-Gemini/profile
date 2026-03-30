@@ -9,13 +9,13 @@ export function Education() {
     {
       degree: "Bachelor of Business Administration (BBA)",
       desc: "2-Year Program | 2023 - 2025",
-      inst: "Punjab University, Commerce Campus",
+      inst: "Punjab University, Commerce Campus Gujrat",
       glow: true
     },
     {
       degree: "Bachelor of Commerce (B.Com)",
       desc: "2014 - 2017",
-      inst: "University of Gujrat, Marghazar Campus",
+      inst: "University of Gujrat, Marghazar Campus Gujrat",
       glow: false
     }
   ];

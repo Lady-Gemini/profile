@@ -1,6 +1,7 @@
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/education", label: "Education" },
   { href: "/experience", label: "Experience" },
   { href: "/skills", label: "Skills" },
   { href: "/contact", label: "Contact" },
@@ -50,14 +51,16 @@ export const experiences = [
 
 export const education = [
   {
-    degree: "Bachelor of Business Administration (BBA) - 2-Year Program",
+    degree: "Bachelor of Business Administration (BBA)",
+    subtitle: "2-Year Program (Replacement for MBA after Associate Degree)",
     period: "2023 - 2025",
-    institution: "Punjab University, Commerce Campus",
+    institution: "Punjab University, Commerce Campus Gujrat",
   },
   {
     degree: "Bachelor of Commerce (B.Com)",
+    subtitle: "2-Year Program",
     period: "2014 - 2017",
-    institution: "University of Gujrat, Marghazar Campus",
+    institution: "University of Gujrat, Marghazar Campus Gujrat",
   },
 ];
 
