@@ -1,190 +1,116 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Briefcase, GraduationCap, Code2, Users, Languages } from "lucide-react";
+import { ArrowRight, Layers, Sparkles } from "lucide-react";
+import { PageHeader } from "@/components/PageHeader";
+import { highlights } from "@/lib/site-data";
 
-const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 }
-};
+const quickLinks = [
+  {
+    title: "About",
+    text: "Learn about my approach, values, and academic background.",
+    href: "/about",
+  },
+  {
+    title: "Experience",
+    text: "Review practical work history and responsibilities.",
+    href: "/experience",
+  },
+  {
+    title: "Skills",
+    text: "Explore technical, professional, and operational strengths.",
+    href: "/skills",
+  },
+  {
+    title: "Contact",
+    text: "Reach out for opportunities and collaborations.",
+    href: "/contact",
+  },
+];
 
-const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2
-    }
-  }
-};
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <main className="max-w-5xl mx-auto px-6 py-16 lg:py-24 font-sans text-slate-300">
-      {/* Header Section */}
-      <motion.header 
-        initial="hidden" animate="visible" variants={fadeIn} transition={{ duration: 0.6 }}
-        className="mb-16 border-b border-slate-700 pb-8 text-center"
+    <div className="space-y-14">
+      <PageHeader
+        eyebrow="Portfolio"
+        title="Professional profile and career overview"
+        description="Business Administration background with practical experience in banking operations, education, and administrative support."
+      />
+
+      {/* Highlighted introduction block */}
+      <motion.section
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
+        className="rounded-[2rem] border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 bg-white/60 dark:bg-[#3E5B4C]/45 p-6 md:p-8"
       >
-        <motion.h1 className="text-5xl font-extrabold text-white tracking-tight mb-4">
-          Rida Shahid
-        </motion.h1>
-        <p className="text-xl text-indigo-400 font-medium mb-6">Business Administration Graduate</p>
-        
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm">
-          <div className="flex items-center gap-2">
-            <Phone size={16} className="text-slate-400" />
-            <span>+92 313 7946587</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <Mail size={16} className="text-slate-400" />
-            <a href="mailto:ridasa786@gmail.com" className="hover:text-indigo-400 transition-colors">
-              ridasa786@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center gap-2">
-            <MapPin size={16} className="text-slate-400" />
-            <span>Sabzazar A Block, Hassan Street, Lahore, Pakistan</span>
-          </div>
+        <div className="flex flex-wrap items-center gap-3 text-sm">
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#F2E9DC] dark:bg-[#2F4A3F] px-3 py-1">
+            <Sparkles size={14} className="text-[#D9A441]" />
+            Professional Profile
+          </span>
+          <span className="inline-flex items-center gap-2 rounded-full bg-[#F2E9DC] dark:bg-[#2F4A3F] px-3 py-1">
+            <Layers size={14} className="text-[#D9A441]" />
+            Career Highlights
+          </span>
         </div>
-      </motion.header>
+        <p className="mt-4 max-w-3xl text-[#1A1A1A]/75 dark:text-[#FAF7F0]/80 leading-8">
+          Motivated and detail-oriented Business Administration graduate seeking an entry-level position in a dynamic organization or educational setting. Committed to continuous learning, professional growth, and delivering value through effective communication and teamwork.
+        </p>
+      </motion.section>
 
-      <motion.div 
-        variants={staggerContainer}
-        initial="hidden"
-        animate="visible"
-        className="grid grid-cols-1 md:grid-cols-3 gap-12"
-      >
-        {/* Left Column (Main content) */}
-        <div className="md:col-span-2 space-y-12">
-          
-          {/* Summary */}
-          <motion.section variants={fadeIn} className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700/50 backdrop-blur-sm shadow-xl">
-            <h2 className="text-2xl font-bold text-white mb-4 flex items-center gap-2">
-              <Users className="text-indigo-400" /> Professional Summary
-            </h2>
-            <p className="leading-relaxed">
-              Highly motivated and detail-oriented Business Administration graduate seeking an entry-level position in a dynamic, growth-oriented organization. Eager to leverage a strong academic foundation in commerce and business management to drive operational efficiency, support strategic objectives, and continuously develop advanced professional competencies.
-            </p>
-          </motion.section>
+      {/* Navigation cards */}
+      <section className="grid gap-4 md:grid-cols-2">
+        {quickLinks.map((item, index) => (
+          <motion.div
+            key={item.href}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: index * 0.06 }}
+          >
+            <Link
+              href={item.href}
+              className="group block rounded-3xl border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 bg-white/55 dark:bg-[#3E5B4C]/35 p-6 hover:border-[#D9A441] transition-colors"
+            >
+              <h2 className="text-xl font-semibold">{item.title}</h2>
+              <p className="mt-2 text-sm leading-7 text-[#1A1A1A]/70 dark:text-[#FAF7F0]/78">{item.text}</p>
+              <span className="mt-4 inline-flex items-center gap-2 text-sm font-medium text-[#C06A3A] dark:text-[#F4B400]">
+                Open page
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </span>
+            </Link>
+          </motion.div>
+        ))}
+      </section>
 
-          {/* Education */}
-          <motion.section variants={fadeIn}>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2 pb-2 border-b border-slate-700/50">
-              <GraduationCap className="text-indigo-400" /> Education
-            </h2>
-            <div className="space-y-6">
-              <div className="relative pl-6 border-l-2 border-indigo-500/30">
-                <div className="absolute w-3 h-3 bg-indigo-500 rounded-full -left-[7px] top-1.5 ring-4 ring-slate-900" />
-                <h3 className="text-xl font-semibold text-slate-100">Bachelor of Business Administration (BBA)</h3>
-                <p className="text-indigo-400 text-sm mb-2">2-Year Program | 2023 – 2025</p>
-                <p className="text-slate-400">Punjab University, Commerce Campus</p>
-              </div>
-              <div className="relative pl-6 border-l-2 border-indigo-500/30">
-                <div className="absolute w-3 h-3 bg-slate-600 rounded-full -left-[7px] top-1.5 ring-4 ring-slate-900" />
-                <h3 className="text-xl font-semibold text-slate-100">Bachelor of Commerce (B.Com)</h3>
-                <p className="text-slate-400 text-sm mb-2">2014 – 2017</p>
-                <p className="text-slate-400">University of Gujrat, Marghazar Campus</p>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Experience */}
-          <motion.section variants={fadeIn}>
-            <h2 className="text-2xl font-bold text-white mb-6 flex items-center gap-2 pb-2 border-b border-slate-700/50">
-              <Briefcase className="text-indigo-400" /> Professional Experience
-            </h2>
-            <div className="space-y-8">
-              <div className="bg-slate-800/30 p-5 rounded-xl border border-slate-700/30 hover:border-indigo-500/30 transition-colors">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-semibold text-slate-100">Banking Intern</h3>
-                  <span className="text-sm px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full">3 Months</span>
-                </div>
-                <p className="text-indigo-300 text-sm mb-4">MCB Bank (Bhimber Road, Gujrat)</p>
-                <ul className="list-disc list-inside space-y-2 text-slate-400">
-                  <li>Facilitated daily banking operations and provided comprehensive customer service support.</li>
-                  <li>Managed financial records, ensured data accuracy, and streamlined documentation processes.</li>
-                </ul>
-              </div>
-
-              <div className="bg-slate-800/30 p-5 rounded-xl border border-slate-700/30 hover:border-indigo-500/30 transition-colors">
-                <div className="flex justify-between items-start mb-2">
-                  <h3 className="text-xl font-semibold text-slate-100">Educator</h3>
-                  <span className="text-sm px-3 py-1 bg-slate-700 text-slate-300 rounded-full">11 Months</span>
-                </div>
-                <p className="text-indigo-300 text-sm mb-4">Allied School (Jinnah Campus)</p>
-                <ul className="list-disc list-inside space-y-2 text-slate-400">
-                  <li>Designed and delivered engaging lesson plans while effectively managing classroom dynamics.</li>
-                  <li>Fostered a collaborative learning environment, enhancing student engagement and academic performance.</li>
-                </ul>
-              </div>
-            </div>
-          </motion.section>
-
+      {/* Professional highlights preview */}
+      <section>
+        <div className="mb-5 flex items-center justify-between">
+          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">Professional Highlights</h2>
+          <Link href="/projects" className="text-sm text-[#C06A3A] dark:text-[#F4B400] hover:underline">
+            View all highlights
+          </Link>
         </div>
 
-        {/* Right Column (Sidebar) */}
-        <div className="space-y-8">
-          
-          {/* Skills */}
-          <motion.section variants={fadeIn} className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Code2 className="text-indigo-400" size={20} /> Competencies
-            </h2>
-            
-            <div className="space-y-4 text-sm">
-              <div>
-                <h3 className="text-slate-100 font-medium mb-2">Technical Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["MS Office Suite", "Digital Research", "Data Entry", "Proofreading"].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-slate-700/50 rounded-lg text-slate-300">{skill}</span>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <h3 className="text-slate-100 font-medium mb-2">Soft Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Communication", "Time Management", "Prioritization", "Client Relations"].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-slate-700/50 rounded-lg text-slate-300">{skill}</span>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3 className="text-slate-100 font-medium mb-2">Operational Support</h3>
-                <div className="flex flex-wrap gap-2">
-                  {["Workflow Organization", "Record Keeping", "Cross-functional Collaboration"].map((skill) => (
-                    <span key={skill} className="px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-lg">{skill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </motion.section>
-
-          {/* Languages */}
-          <motion.section variants={fadeIn} className="bg-slate-800/40 p-6 rounded-2xl border border-slate-700/50">
-            <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
-              <Languages className="text-indigo-400" size={20} /> Languages
-            </h2>
-            <ul className="space-y-3">
-              <li className="flex justify-between items-center">
-                <span className="text-slate-200">Urdu</span>
-                <span className="text-xs px-2 py-1 bg-indigo-500/20 text-indigo-300 rounded">Native</span>
-              </li>
-              <li className="flex justify-between items-center">
-                <span className="text-slate-200">English</span>
-                <span className="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded">Fluent</span>
-              </li>
-              <li className="flex justify-between items-center">
-                <span className="text-slate-200">Punjabi</span>
-                <span className="text-xs px-2 py-1 bg-slate-700 text-slate-300 rounded">Fluent</span>
-              </li>
-            </ul>
-          </motion.section>
-
+        <div className="grid gap-4 md:grid-cols-3">
+          {highlights.slice(0, 3).map((item, index) => (
+            <motion.article
+              key={item.title}
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
+              whileHover={{ y: -5 }}
+              className="rounded-3xl border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 bg-[#FAF7F0]/80 dark:bg-[#2F4A3F]/55 p-5"
+            >
+              <h3 className="font-semibold">{item.title}</h3>
+              <p className="mt-2 text-sm leading-7 text-[#1A1A1A]/70 dark:text-[#FAF7F0]/75">{item.summary}</p>
+            </motion.article>
+          ))}
         </div>
-      </motion.div>
-    </main>
+      </section>
+    </div>
   );
 }

@@ -6,7 +6,7 @@
 ---
 
 ## Professional Summary
-Highly motivated and detail-oriented Business Administration graduate seeking an entry-level position in a dynamic, growth-oriented organization. Eager to leverage a strong academic foundation in commerce and business management to drive operational efficiency, support strategic objectives, and continuously develop advanced professional competencies.
+Motivated and detail-oriented Business Administration graduate seeking an entry-level position in a dynamic organization or educational setting. Brings a strong academic foundation in commerce and business management, with the ability to support administrative operations, contribute to organizational goals, and assist in teaching or training environments. Committed to continuous learning, professional growth, and delivering value through effective communication, organization, and teamwork.
 
 ## Education
 

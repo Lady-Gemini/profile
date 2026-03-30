@@ -1,8 +1,92 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-forest: #2F4A3F;
+  --color-olive: #3E5B4C;
+  --color-cream: #F2E9DC;
+  --color-offwhite: #FAF7F0;
+  --color-burnt: #C06A3A;
+  --color-mustard: #E3A72F;
+  --color-peach: #E97A5A;
+  --color-bright: #F4B400;
+  --color-golden: #D9A441;
+  --color-primary-black: #1A1A1A;
+  --color-graybeige: #E5DED3;
+  --color-graygreen: #7A8F85;
+
+  --animate-shimmer: shimmer 1.5s infinite;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+/* Futuristic grid backgrounds */
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(244, 180, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(244, 180, 0, 0.05) 1px, transparent 1px);
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(to right, rgba(217, 164, 65, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 164, 65, 0.03) 1px, transparent 1px);
+}
+
+.mask-border {
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Glowing cyber borders */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(120deg, transparent, var(--color-bright), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.glow-border:hover::before {
+  opacity: 1;
+}
+
+/* Custom scrollbar for web dev vibe */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-golden);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-bright);
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background-color: #0f172a;
-  color: #f8fafc;
+  font-family: "Segoe UI", "Inter", sans-serif;
 }
