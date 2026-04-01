@@ -10,11 +10,15 @@ Motivated and detail-oriented Business Administration graduate seeking an entry-
 
 ## Education
 
-**Bachelor of Business Administration (BBA) – 2-Year Program** | 2023 – 2025  
-*Punjab University, Commerce Campus*
+**Bachelor of Business Administration (BBA)**  
+2-Year Program (Replacement for MBA after Associate Degree)  
+2023 – 2025  
+Punjab University, Commerce Campus Gujrat
 
-**Bachelor of Commerce (B.Com)** | 2014 – 2017  
-*University of Gujrat, Marghazar Campus*
+**Bachelor of Commerce (B.Com)**  
+2-Year Program  
+2014 – 2017  
+University of Gujrat, Marghazar Campus Gujrat
 
 ## Professional Experience
 

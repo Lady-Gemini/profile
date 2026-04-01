@@ -36,11 +36,11 @@ export default function EducationPage() {
               <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-[#1A1A1A] dark:text-[#FAF7F0] leading-tight">
                 {item.degree}
               </h3>
-              {(item as any).subtitle && (
+              {item.subtitle ? (
                 <p className="text-base text-[#C06A3A] dark:text-[#D9A441] font-semibold leading-relaxed -mt-1 mb-2">
-                  {(item as any).subtitle}
+                  {item.subtitle}
                 </p>
-              )}
+              ) : null}
               <p className="text-[#1A1A1A]/80 dark:text-[#FAF7F0]/80 font-medium text-lg flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#D9A441] inline-block"></span>
                 {item.institution}

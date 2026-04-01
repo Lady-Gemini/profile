@@ -1,6 +1,7 @@
 import { PageHeader } from "@/components/PageHeader";
 import { InfoAccordion } from "@/components/InfoAccordion";
 import { education } from "@/lib/site-data";
+import { GraduationCap } from "lucide-react";
 
 export default function AboutPage() {
   return (
@@ -22,11 +23,19 @@ export default function AboutPage() {
           {education.map((item) => (
             <article
               key={item.degree}
-              className="rounded-2xl border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 bg-[#FAF7F0]/70 dark:bg-[#2F4A3F]/45 p-5"
+              className="rounded-2xl border border-[#1A1A1A]/10 dark:border-[#FAF7F0]/10 bg-[#FAF7F0]/70 dark:bg-[#2F4A3F]/45 p-5 space-y-3"
             >
-              <h3 className="font-semibold text-lg">{item.degree}</h3>
-              <p className="mt-2 text-sm text-[#C06A3A] dark:text-[#F4B400]">{item.period}</p>
-              <p className="mt-1 text-sm text-[#1A1A1A]/65 dark:text-[#FAF7F0]/75">{item.institution}</p>
+              <div className="flex h-10 w-10 items-center justify-center rounded-full border border-[#D9A441]/30 bg-[#D9A441]/10 text-[#C06A3A] dark:text-[#F4B400]">
+                <GraduationCap size={18} />
+              </div>
+              <h3 className="text-xl font-semibold tracking-tight text-[#1A1A1A] dark:text-[#FAF7F0]">{item.degree}</h3>
+              {item.subtitle ? (
+                <p className="text-sm font-semibold text-[#C06A3A] dark:text-[#D9A441]">{item.subtitle}</p>
+              ) : null}
+              <p className="inline-flex rounded-full bg-[#D9A441]/10 px-3 py-1 text-xs font-bold tracking-widest text-[#C06A3A] dark:text-[#F4B400] uppercase">
+                {item.period}
+              </p>
+              <p className="text-sm text-[#1A1A1A]/65 dark:text-[#FAF7F0]/75">{item.institution}</p>
             </article>
           ))}
         </div>

@@ -49,7 +49,14 @@ export const experiences = [
   },
 ];
 
-export const education = [
+export type EducationEntry = {
+  degree: string;
+  subtitle?: string;
+  period: string;
+  institution: string;
+};
+
+export const education: EducationEntry[] = [
   {
     degree: "Bachelor of Business Administration (BBA)",
     subtitle: "2-Year Program (Replacement for MBA after Associate Degree)",
